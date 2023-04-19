@@ -11,6 +11,7 @@ const ManageEmployee = () => {
 
     const navigate = useNavigate();
 
+
     const [state, setState] = useState({
         isLoading: false,
         data: []
@@ -46,7 +47,7 @@ const ManageEmployee = () => {
             });
 
             window.location.reload()
-
+            navigate('/all');
 
         } else {
             toast.error(`Error : ${res.data.message} `, {
@@ -89,7 +90,7 @@ const ManageEmployee = () => {
                                                     <th></th>
                                                 </tr>
                                             </thead>
-                                            <tbody style={{ paddingTop: "30px" }} >
+                                            {/* <tbody style={{ paddingTop: "30px" }} >
 
                                                 {
                                                     isLoading === false
@@ -103,12 +104,10 @@ const ManageEmployee = () => {
                                                                     <td>{ele.department}</td>
                                                                     <td>{ele.status === 1 ? "Remote" : ele.status === 2 ? "Contract" : "FullTime"}</td>
                                                                     <td>
-                                                                        <td>
                                                                             <a href={`/edit?id=${ele._id}`} style={{ fontSize: "20px", cursor: "pointer", color: "green" }} className="fa-solid fa-pen-to-square"></a>
                                                                             <Link to='/all'>
                                                                             <i className="fa-solid fa-trash" onClick={() => { deleteEm(ele._id) }} style={{ fontSize: "18px", cursor: "pointer", color: "red", marginLeft: "10px" }} ></i>
                                                                             </Link>
-                                                                        </td>
                                                                     </td>
                                                                 </tr>
                                                             )
@@ -119,7 +118,30 @@ const ManageEmployee = () => {
 
 
 
-                                            </tbody>
+                                            </tbody> */}
+                                            <tbody style={{ paddingTop: "30px" }}>
+    {isLoading === false
+        ? data?.map((ele, i) => {
+            return (
+                <tr key={ele._id}>
+                    <td>{i + 1}</td>
+                    <td>{ele.name}</td>
+                    <td>{ele.age}</td>
+                    <td>{ele.department}</td>
+                    <td>{ele.status === 1 ? "Remote" : ele.status === 2 ? "Contract" : "FullTime"}</td>
+                    <td>
+                        <a href={`/edit?id=${ele._id}`} style={{ fontSize: "20px", cursor: "pointer", color: "green" }} className="fa-solid fa-pen-to-square"></a>
+                        <Link to='/all'>
+                            <i className="fa-solid fa-trash" onClick={() => { deleteEm(ele._id) }} style={{ fontSize: "18px", cursor: "pointer", color: "red", marginLeft: "10px" }} ></i>
+                        </Link>
+                    </td>
+                </tr>
+            )
+        })
+        : <tr><td>Loading</td></tr>
+    }
+</tbody>
+
                                         </table>
                                     </div>
                                 </div>
