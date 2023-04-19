@@ -105,7 +105,9 @@ const ManageEmployee = () => {
                                                                     <td>
                                                                         <td>
                                                                             <a href={`/edit?id=${ele._id}`} style={{ fontSize: "20px", cursor: "pointer", color: "green" }} className="fa-solid fa-pen-to-square"></a>
+                                                                            <Link to='/all'>
                                                                             <i className="fa-solid fa-trash" onClick={() => { deleteEm(ele._id) }} style={{ fontSize: "18px", cursor: "pointer", color: "red", marginLeft: "10px" }} ></i>
+                                                                            </Link>
                                                                         </td>
                                                                     </td>
                                                                 </tr>
