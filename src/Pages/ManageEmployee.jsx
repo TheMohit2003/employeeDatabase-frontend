@@ -46,8 +46,7 @@ const ManageEmployee = () => {
                 theme: "light",
             });
 
-            window.location.reload()
-            navigate('/all');
+            navigate('/');
 
         } else {
             toast.error(`Error : ${res.data.message} `, {

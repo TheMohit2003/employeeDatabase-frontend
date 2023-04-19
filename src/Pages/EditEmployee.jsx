@@ -60,7 +60,7 @@ const EditEmployee = () => {
                 theme: "light",
             });
 
-            navigate("/all")
+            navigate("/")
 
 
         } else {

@@ -38,7 +38,7 @@ const CreateEmployee = () => {
                 theme: "light",
             });
 
-            navigate("/all")
+            navigate("/")
 
 
         } else {
